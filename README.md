@@ -3,7 +3,7 @@
 <h5>API dattabot di build on framework laravel version 9 with versi php 8.0, make sure your version php greether than >=7 </h5>
 
 <h5>
-module php require for use this is project is: pdo_mysqli, mysqli, xml, mbstring, curl, xml, zip, tokenizer, mongodb
+module php require for use this is project is: pdo_mysqli, mysqli, xml, mbstring, curl, xml, zip, tokenizer, mongodb, sodium, xsl
 </h5>
 
 ```bash
