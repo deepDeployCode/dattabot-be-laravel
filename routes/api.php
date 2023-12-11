@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PokedexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     //routes basic auth
     Route::prefix('auth')->group(function () {
-        Route::post('login', [AuthController::class, 'login'])->name('app-login');
-        Route::post('register', [AuthController::class, 'register'])->name('app-register');
+        Route::post('login', [AuthController::class, 'login'])->name('dattabot-login');
+        Route::post('register', [AuthController::class, 'register'])->name('dattabot-register');
         Route::middleware('auth:api')->group(function () {
-            Route::post('logout', [AuthController::class, 'logout'])->name('app-logout');
+            Route::post('logout', [AuthController::class, 'logout'])->name('dattabot-logout');
         });
+    });
+    Route::prefix('pokedex')->group(function () {
+        Route::get('/list', [PokedexController::class, 'list'])->name('dattabot-list-pokedex');
+        Route::get('/{id}/detail', [PokedexController::class, 'detail'])->name('dattabot-detail-pokedex');
     });
 });
