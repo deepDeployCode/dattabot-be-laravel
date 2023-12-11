@@ -93,7 +93,7 @@ trait PokedexRepositories
         $type_1_label[] = $this->labelType1();
         $valueType1[] = $this->valueType1();
         for ($x = 0; $x <= count($this->labelType1()); $x++) {
-            return ['label_type_1' => $type_1_label[$x], 'value_type_1' => $valueType1[$x], 'high_scores' => $this->highScores()];
+            return $this->response()->ok(['label_type_1' => $type_1_label[$x], 'value_type_1' => $valueType1[$x], 'high_scores' => $this->highScores()], 'Successfully Data Visualization Pokemon');
         }
     }
 }
