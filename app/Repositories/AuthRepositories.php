@@ -46,4 +46,31 @@ trait AuthRepositories
     {
         return Auth::guard('api')->user()->token()->delete();
     }
+
+    public function listUserRepositories($request)
+    {
+        $data = User::orderBy($request->sort ? $request->sort : 'id', $request->typeSort ? $request->typeSort : 'ASC')
+            ->when($request->name, function ($query) use ($request) {
+                return $query->where('name', 'like', "%{$request->name}%");
+            })
+            ->when($request->username, function ($query) use ($request) {
+                return $query->where('username', 'like', "%{$request->username}%");
+            })
+            ->when($request->email, function ($query) use ($request) {
+                return $query->where('email', 'like', "%{$request->email}%");
+            })
+            ->paginate($this->response()->limit($request));
+
+        return $data;
+    }
+
+    public function detailUserRepositories($id)
+    {
+        if ($detail = User::whereId($id)->first()) {
+            $result = $this->response()->ok($detail);
+        } else {
+            $result = $this->response()->error('id users not found');
+        }
+        return $result;
+    }
 }

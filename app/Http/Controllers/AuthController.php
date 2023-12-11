@@ -43,4 +43,14 @@ class AuthController extends Controller implements AuthInterface
     {
         return $this->ok($this->logoutRepositories(), 'Successfully Logout');
     }
+
+    public function listUser(Request $request)
+    {
+        return $this->listUserRepositories($request);
+    }
+
+    public function detailUser($id)
+    {
+        return $this->detailUserRepositories($id);
+    }
 }
