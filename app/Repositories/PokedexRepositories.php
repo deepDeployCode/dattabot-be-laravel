@@ -20,10 +20,16 @@ trait PokedexRepositories
                 return $query->where('name', 'like', "%{$request->name}%");
             })->paginate($this->response()->limit($request));
 
-        return $this->response()->ok(ListPokedexResource::collection($data));
+        return ListPokedexResource::collection($data);
     }
 
     public function detailRepositories($id)
     {
+        if ($pokedetail = Pokedex_dataset::whereId($id)->first()) {
+            $result = $this->response()->ok($pokedetail);
+        } else {
+            $result = $this->response()->error('id pokedex not found');
+        }
+        return $result;
     }
 }
