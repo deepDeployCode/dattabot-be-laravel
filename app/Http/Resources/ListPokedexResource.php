@@ -14,6 +14,11 @@ class ListPokedexResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'pokedex_number' => $this->pokedex_number,
+            'name' => $this->name,
+            'species' => $this->species,
+        ];
     }
 }
