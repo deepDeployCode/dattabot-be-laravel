@@ -72,7 +72,7 @@ but if we use url from server like this. ex: https://dev-api-dattabot.betalogika
 }
 ```
 
-# Test Request TDC API
+# Test Request Dattabot API
 
 ```Bash
 
