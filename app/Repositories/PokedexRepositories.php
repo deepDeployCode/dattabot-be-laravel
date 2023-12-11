@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Models\Pokedex_dataset;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListPokedexResource;
 use App\Http\Resources\PokedexDetailResource;
-use App\Models\Pokedex_dataset;
 
 trait PokedexRepositories
 {
@@ -53,8 +54,45 @@ trait PokedexRepositories
         return $result;
     }
 
+    private static function labelType1()
+    {
+        return ['Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Dark', 'Poison', 'Electric', 'Ice', 'Ground', 'Fairy', 'Steel', 'Fighting', 'Psychic', 'Rock', 'Ghost'];
+    }
+
+    private static function valueType1()
+    {
+        return
+            [
+                DB::table('pokedex_dataset')->where('type_1', 'Grass')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Fire')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Water')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Water')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Bug')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Normal')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Dark')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Poison')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Electric')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Ice')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Ground')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Fairy')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Steel')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Fighting')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Psychic')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Rock')->get()->count(),
+                DB::table('pokedex_dataset')->where('type_1', 'Ghost')->get()->count(),
+            ];
+    }
+
+    private static function highScores()
+    {
+    }
+
     public function visualDataPokemonRepositories($request)
     {
-        return 'test';
+        $type_1_label[] = $this->labelType1();
+        $valueType1[] = $this->valueType1();
+        for ($x = 0; $x <= count($this->labelType1()); $x++) {
+            return ['label_type_1' => $type_1_label[$x], 'value_type_1' => $valueType1[$x]];
+        }
     }
 }
