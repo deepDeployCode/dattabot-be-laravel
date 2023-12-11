@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListPokedexResource;
+use App\Http\Resources\PokedexDetailResource;
 use App\Models\Pokedex_dataset;
 
 trait PokedexRepositories
@@ -25,8 +26,8 @@ trait PokedexRepositories
 
     public function detailRepositories($id)
     {
-        if ($pokedetail = Pokedex_dataset::whereId($id)->first()) {
-            $result = $this->response()->ok($pokedetail);
+        if ($detail = Pokedex_dataset::whereId($id)->first()) {
+            $result = $this->response()->ok(new PokedexDetailResource($detail));
         } else {
             $result = $this->response()->error('id pokedex not found');
         }
