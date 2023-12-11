@@ -19,4 +19,9 @@ class PokedexController extends Controller implements PokedexInterface
     {
         return $this->detailRepositories($id);
     }
+
+    public function visualDataPokemon(Request $request)
+    {
+        return $this->visualDataPokemonRepositories($request);
+    }
 }

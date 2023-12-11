@@ -8,4 +8,5 @@ interface PokedexInterface
 {
     public function list(Request $request); //list pokedex
     public function detail($id); // detail pokedex
+    public function visualDataPokemon(Request $request);
 }

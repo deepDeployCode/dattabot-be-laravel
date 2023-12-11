@@ -52,4 +52,8 @@ trait PokedexRepositories
         }
         return $result;
     }
+
+    public function visualDataPokemonRepositories($request)
+    {
+    }
 }
