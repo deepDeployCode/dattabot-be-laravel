@@ -85,6 +85,7 @@ trait PokedexRepositories
 
     private static function highScores()
     {
+        return DB::table('pokedex_dataset')->orderByDesc('total_points')->limit(5)->get(['total_points', 'name']);
     }
 
     public function visualDataPokemonRepositories($request)
@@ -92,7 +93,7 @@ trait PokedexRepositories
         $type_1_label[] = $this->labelType1();
         $valueType1[] = $this->valueType1();
         for ($x = 0; $x <= count($this->labelType1()); $x++) {
-            return ['label_type_1' => $type_1_label[$x], 'value_type_1' => $valueType1[$x]];
+            return ['label_type_1' => $type_1_label[$x], 'value_type_1' => $valueType1[$x], 'high_scores' => $this->highScores()];
         }
     }
 }
