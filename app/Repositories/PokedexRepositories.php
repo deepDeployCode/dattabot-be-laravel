@@ -55,5 +55,6 @@ trait PokedexRepositories
 
     public function visualDataPokemonRepositories($request)
     {
+        return 'test';
     }
 }

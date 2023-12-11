@@ -25,7 +25,7 @@ Route::prefix('v1')->group(function () {
             Route::prefix('pokedex')->group(function () {
                 Route::get('/list', [PokedexController::class, 'list'])->name('dattabot-list-pokedex');
                 Route::get('/{id}/detail', [PokedexController::class, 'detail'])->name('dattabot-detail-pokedex');
-                Route::get('/visual-data', [PokedexController::class, 'visualDataPokemon'])->name('dattabot-detail-pokedex');
+                Route::post('/visual-data', [PokedexController::class, 'visualDataPokemon'])->name('dattabot-detail-pokedex');
             });
             Route::prefix('master-data')->group(function () {
                 Route::get('/', [AuthController::class, 'listUser'])->name('master-data-user-list');
