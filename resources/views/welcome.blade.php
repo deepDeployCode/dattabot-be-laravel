@@ -431,10 +431,10 @@
 
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                All Documentation API any postman, please hit the <a
+                                All Documentation API with insomnia, please hit the <a
                                     href="https://github.com/deepDeployCode/dattabot-be-laravel" alt="linkCollection"
                                     target="_blank"><b><u>Link</u></b></a> for get collection
-                                postman api
+                                insomnia api
                                 and documentation.
                             </div>
                         </div>
