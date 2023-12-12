@@ -104,10 +104,3 @@ curl -H 'Content-Type: application/json' \
     https://dev-api-dattabot.betalogika.tech/api/v1/auth/logout
 
 ```
-
-# Env
-
-```Bash
-#please download this env and try on your local
-Link: https://docs.google.com/document/d/1UwpTaMkT_yRKjBFGVek9ZEA09EGoiqY2svWfLU4Q560/edit?usp=sharing
-```
